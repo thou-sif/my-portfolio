@@ -10,15 +10,15 @@ export const crates: Crate[] = [
   {
     name: 'request-coaleser',
     tagline: 'A coalesing library for handling requests in Rust.',
-    repoUrl: 'https://github.com/...',
-    crateUrl: 'https://crates.io/...',
-    writeupSlug: '/writeups/my-first-crate'
+    repoUrl: 'https://github.com/thou-sif/request_coalescer',
+    crateUrl: 'https://crates.io/crates/request_coalescer',
+    writeupSlug: 'https://github.com/thou-sif/request_coalescer/blob/master/README.md'
   },
   {
     name: 'axum-realtime-kit',
     tagline: 'A high-performance, easy-to-use realtime websocket kit for Axum.',
-    repoUrl: 'https://github.com/...',
-    crateUrl: 'https://crates.io/...',
-    writeupSlug: '/writeups/my-first-crate'
+    repoUrl: 'https://github.com/thou-sif/axum-realtime-kit',
+    crateUrl: 'https://crates.io/crates/axum-realtime-kit',
+    writeupSlug: 'https://github.com/thou-sif/axum-realtime-kit/blob/master/README.md'
   },
 ];
