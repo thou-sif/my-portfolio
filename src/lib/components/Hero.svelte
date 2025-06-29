@@ -3,7 +3,6 @@
   export let tagline: string;
 
   function scrollToNextSection() {
-    // Find the next section after hero
     const heroContainer = document.querySelector('.hero-container');
     if (heroContainer) {
       const nextSection = heroContainer.nextElementSibling;
@@ -38,34 +37,45 @@
 
 <style>
   .hero-container {
-    min-height: 100vh; /* Make the hero section fill the entire first screen */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .glass-panel {
     /* The Glassmorphism Effect */
-    background: rgba(255, 255, 255, 0.05); /* Very transparent white */
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: auto;
+    box-sizing: border-box;
   }
 
   .hero-content {
     padding: 3rem 4rem;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .greeting {
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .name-gradient {
@@ -77,11 +87,12 @@
 
   .tagline {
     font-size: 1.25rem;
-    color: #94a3b8; /* A lighter gray for the tagline */
+    color: #94a3b8;
     margin-top: 0.5rem;
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
-  /* The animated scroll down indicator */
   .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -133,6 +144,72 @@
     }
     60% {
       transform: translateY(3px);
+    }
+  }
+
+  /* Responsive styles for tablets */
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: 2.5rem 3rem;
+    }
+    
+    .greeting {
+      font-size: 2.5rem;
+    }
+    
+    .tagline {
+      font-size: 1.15rem;
+    }
+  }
+
+  /* Responsive styles for mobile phones */
+  @media (max-width: 480px) {
+    .hero-container {
+      padding: 0.75rem;
+    }
+    
+    .glass-panel {
+      width: 100%;
+      border-radius: 12px;
+    }
+    
+    .hero-content {
+      padding: 2rem 1.5rem;
+    }
+    
+    .greeting {
+      font-size: 2rem;
+    }
+    
+    .tagline {
+      font-size: 1rem;
+      margin-top: 0.75rem;
+    }
+    
+    .scroll-indicator {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      bottom: 1.5rem;
+    }
+    
+    .scroll-indicator svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  /* Extra small devices */
+  @media (max-width: 360px) {
+    .hero-content {
+      padding: 1.75rem 1.25rem;
+    }
+    
+    .greeting {
+      font-size: 1.75rem;
+    }
+    
+    .tagline {
+      font-size: 0.9rem;
     }
   }
 </style>

@@ -14,12 +14,28 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
+    padding: 0;
     overflow-x: hidden; /* Prevents horizontal scroll from our background shapes */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  :global(*, *::before, *::after) {
+    box-sizing: border-box;
   }
 
   .main-container {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0 1rem;
   }
 
   /*

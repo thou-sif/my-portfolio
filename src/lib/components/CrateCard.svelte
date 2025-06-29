@@ -29,8 +29,7 @@
 
 <style>
   .glass-panel {
-    /* The Glassmorphism Effect - Consistent with Hero section */
-    background: rgba(30, 41, 59, 0.5); /* Slightly darker glass for cards */
+    background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
@@ -40,27 +39,37 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes links to the bottom */
-    height: 100%; /* Ensures all cards in a grid have same height */
-    
-    transition: all 0.2s ease-in-out;
+    justify-content: space-between;
+    height: 100%;
+    transition: all 0.2s ease-in-out;    
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   .glass-panel:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.3); /* Border brightens on hover */
+    border-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   }
 
+  .content {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
   .crate-name {
-    font-size: 1.5rem; /* Larger for more impact */
+    font-size: 1.5rem;
     font-weight: 600;
     margin: 0 0 0.5rem 0;
-    color: #f1f5f9; /* Bright white/slate color */
+    color: #f1f5f9;
+    overflow-wrap: break-word;
   }
 
   .crate-tagline {
-    color: #94a3b8; /* Same subtle text color from Hero */
+    color: #94a3b8;
     margin-bottom: 1.5rem;
     line-height: 1.5;
   }
@@ -69,7 +78,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: auto; /* Pushes this to the bottom if content is short */
+    margin-top: auto;
+    width: 100%;
   }
 
   .action-link {
@@ -85,6 +95,10 @@
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: background-color 0.2s, color 0.2s;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .action-link:hover {
@@ -92,7 +106,6 @@
     color: #fff;
   }
 
-  /* Special styling for the primary call-to-action */
   .action-link.writeup {
     background-color: rgba(165, 180, 252, 0.2); /* Soft indigo */
     border-color: rgba(165, 180, 252, 0.4);
@@ -103,11 +116,40 @@
     border-color: rgba(199, 210, 254, 0.6);
   }
 
-  /* Responsive behavior */
   @media (max-width: 768px) {
     .crate-links {
       flex-direction: column;
-      align-items: flex-start; /* Links will stack neatly */
+      align-items: flex-start;
+      width: 100%;
+    }
+    
+    .action-link {
+      width: 100%; 
+      justify-content: flex-start;
+      box-sizing: border-box;
+    }
+    
+    .glass-panel {
+      padding: 1.25rem;
+    }
+    
+    .crate-name {
+      font-size: 1.35rem;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .glass-panel {
+      padding: 1rem;
+    }
+    
+    .crate-name {
+      font-size: 1.25rem;
+    }
+    
+    .action-link {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
     }
   }
 </style>

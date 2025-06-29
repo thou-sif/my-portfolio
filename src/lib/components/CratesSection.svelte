@@ -40,4 +40,21 @@
     width: 100%;
     max-width: 1200px;
   }
+
+  @media (max-width: 640px) {
+    .crates-grid {
+      grid-template-columns: 1fr;
+      padding: 0 0.5rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .crates-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
 </style>

@@ -49,10 +49,14 @@
 
 <style>
   .showcase-container {
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
+  
   .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -71,6 +75,9 @@
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .mt-8 {
@@ -79,9 +86,10 @@
   
   .project-grid {
     display: grid;
-    grid-template-columns: 2fr 3fr; /* Text on left, Diagram on right */
+    grid-template-columns: 2fr 3fr;
     gap: 2.5rem;
     align-items: flex-start;
+    width: 100%;
   }
 
   h3 {
@@ -89,6 +97,7 @@
     font-weight: 600;
     color: #f1f5f9;
     margin-top: 0;
+    word-break: break-word;
   }
 
   .description {
@@ -110,26 +119,38 @@
   ul {
     padding-left: 1.25rem;
     color: #94a3b8;
+    overflow-wrap: break-word;
   }
-  ul li { margin-bottom: 0.5rem; }
-  ul li strong { color: #cbd5e1; }
+  
+  ul li { 
+    margin-bottom: 0.5rem; 
+    line-height: 1.5;
+  }
+  
+  ul li strong { 
+    color: #cbd5e1; 
+  }
 
   .diagram-wrapper {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 100%;
   }
+  
   .diagram-wrapper img {
     display: block;
     width: 100%;
-    background-color: rgba(255,255,255, 0.9); /* Makes diagrams with transparent bg readable */
+    height: auto;
+    background-color: rgba(255,255,255, 0.9);
   }
 
   .project-links {
     margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .action-link {
@@ -144,26 +165,89 @@
     color: #cbd5e1;
     transition: all 0.2s;
   }
+  
   .action-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     border-color: rgba(255, 255, 255, 0.2);
   }
+  
   .action-link.primary {
     background-color: #a5b4fc;
     color: #1e293b;
     border-color: transparent;
   }
+  
   .action-link.primary:hover {
     background-color: #c7d2fe;
   }
 
   @media (max-width: 900px) {
     .project-grid {
-      grid-template-columns: 1fr; /* Stack columns on smaller screens */
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
+    
     .diagram-container {
-      grid-row: 1; /* Move diagram to the top on mobile */
+      grid-row: 1;
+    }
+    
+    .glass-panel {
+      padding: 1.5rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .showcase-container {
+      padding: 2rem 0.75rem;
+    }
+    
+    .glass-panel {
+      padding: 1.25rem;
+      border-radius: 16px;
+    }
+    
+    h3 {
+      font-size: 1.35rem;
+    }
+    
+    h4 {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .description {
+      font-size: 0.95rem;
+    }
+    
+    ul {
+      padding-left: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .project-links {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .action-link {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .mt-8 {
+      margin-top: 2.5rem;
     }
   }
 </style>
